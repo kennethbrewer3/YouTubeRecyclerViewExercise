@@ -7,6 +7,8 @@ public class Thumbnail {
     private String sqDefault;
     private String hqDefault;
 
+    private Thumbnail() {}
+
     public Thumbnail(String sqDefault, String hqDefault) {
         this.sqDefault = sqDefault;
         this.hqDefault = hqDefault;

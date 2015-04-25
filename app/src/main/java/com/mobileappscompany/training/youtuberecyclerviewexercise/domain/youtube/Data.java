@@ -12,6 +12,8 @@ public class Data {
     private int itemsPerPage;
     private List<Item> items;
 
+    private Data(){}
+
     public Data(
             String updated,
             int totalItems,

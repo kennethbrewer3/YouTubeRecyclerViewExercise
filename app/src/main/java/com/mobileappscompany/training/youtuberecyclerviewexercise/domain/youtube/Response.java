@@ -7,6 +7,8 @@ public class Response {
     private String apiVersion;
     private Data data;
 
+    private Response() {}
+
     public Response(String apiVersion, Data data) {
         this.apiVersion = apiVersion;
         this.data = data;

@@ -24,6 +24,8 @@ public class Item {
     private int commentCount;
     private AccessControl accessControl;
 
+    private Item() {}
+
     public Item(
             String id,
             String uploaded,

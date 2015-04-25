@@ -1,12 +1,17 @@
 package com.mobileappscompany.training.youtuberecyclerviewexercise.domain.youtube;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by Android1 on 4/20/2015.
  */
 public class Player {
+    @SerializedName("default")
     private String defaultPlayer;
     private String mobile;
 
+    private Player() {}
+    
     public Player(String defaultPlayer, String mobile) {
         this.defaultPlayer = defaultPlayer;
         this.mobile = mobile;

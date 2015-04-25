@@ -13,6 +13,8 @@ public class AccessControl {
     private String autoPlay;
     private String syndicate;
 
+    private AccessControl() {}
+
     public AccessControl (
             String comment,
             String commentVote,
