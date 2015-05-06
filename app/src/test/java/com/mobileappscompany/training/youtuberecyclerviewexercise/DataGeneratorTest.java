@@ -1,5 +1,6 @@
 package com.mobileappscompany.training.youtuberecyclerviewexercise;
 
+import com.mobileappscompany.training.youtuberecyclerviewexercise.web.DataGenerator;
 import com.mobileappscompany.training.youtuberecyclerviewexercise.domain.youtube.Data;
 
 import org.junit.Before;
@@ -21,47 +22,47 @@ public class DataGeneratorTest {
 
     @Test
     public void testGenerate() throws Exception {
-        assertEquals(10,data.getItems().size());
+        assertEquals(10,data.getVideos().size());
         assertEquals(105767,data.getTotalItems());
         assertEquals(10,data.getItemsPerPage());
-        assertEquals("UKY3scPIMd8",data.getItems().get(0).getId());
+        assertEquals("UKY3scPIMd8",data.getVideos().get(0).getId());
 
-        assertNotNull(data.getItems().get(0).getAccessControl());
+        assertNotNull(data.getVideos().get(0).getAccessControl());
         assertEquals("denied",
-                        data.getItems().get(0).getAccessControl().getComment());
+                        data.getVideos().get(0).getAccessControl().getComment());
         assertEquals("allowed",
-                data.getItems().get(0).getAccessControl().getCommentVote());
+                data.getVideos().get(0).getAccessControl().getCommentVote());
         assertEquals("moderated",
-                data.getItems().get(0).getAccessControl().getVideoRespond());
+                data.getVideos().get(0).getAccessControl().getVideoRespond());
         assertEquals("denied",
-                data.getItems().get(0).getAccessControl().getRate());
+                data.getVideos().get(0).getAccessControl().getRate());
         assertEquals("allowed",
-                data.getItems().get(0).getAccessControl().getEmbed());
+                data.getVideos().get(0).getAccessControl().getEmbed());
         assertEquals("denied",
-                data.getItems().get(0).getAccessControl().getList());
+                data.getVideos().get(0).getAccessControl().getList());
         assertEquals("allowed",
-                data.getItems().get(0).getAccessControl().getAutoPlay());
+                data.getVideos().get(0).getAccessControl().getAutoPlay());
         assertEquals("allowed",
-                data.getItems().get(0).getAccessControl().getSyndicate());
+                data.getVideos().get(0).getAccessControl().getSyndicate());
 
-        assertNotNull(data.getItems().get(0).getPlayer());
+        assertNotNull(data.getVideos().get(0).getPlayer());
         assertEquals("https://www.youtube.com/watch?v=UKY3scPIMd8&feature=youtube_gdata_player",
-                        data.getItems().get(0).getPlayer().getDefaultPlayer());
+                        data.getVideos().get(0).getPlayer().getDefaultPlayer());
         assertEquals("https://m.youtube.com/details?v=UKY3scPIMd8",
-                data.getItems().get(0).getPlayer().getMobile());
+                data.getVideos().get(0).getPlayer().getMobile());
 
-        assertNotNull(data.getItems().get(0).getThumbnail());
+        assertNotNull(data.getVideos().get(0).getThumbnail());
         assertEquals("https://i.ytimg.com/vi/UKY3scPIMd8/default.jpg",
-                        data.getItems().get(0).getThumbnail().getSqDefault());
+                        data.getVideos().get(0).getThumbnail().getSqDefault());
         assertEquals("https://i.ytimg.com/vi/UKY3scPIMd8/hqdefault.jpg",
-                        data.getItems().get(0).getThumbnail().getHqDefault());
+                        data.getVideos().get(0).getThumbnail().getHqDefault());
 
-        assertNotNull(data.getItems().get(0).getContent());
+        assertNotNull(data.getVideos().get(0).getContent());
         assertEquals("rtsp://r1---sn-p5qlsu76.c.youtube.com/CiILENy73wIaGQnfMcjDsTemUBMYDSANFEgGUgZ2aWRlb3MM/0/0/0/video.3gp",
-                data.getItems().get(0).getContent().getOne());
+                data.getVideos().get(0).getContent().getOne());
         assertEquals("https://www.youtube.com/v/UKY3scPIMd8?version=3&f=videos&app=youtube_gdata",
-                     data.getItems().get(0).getContent().getFive());
+                     data.getVideos().get(0).getContent().getFive());
         assertEquals("rtsp://r1---sn-p5qlsu76.c.youtube.com/CiILENy73wIaGQnfMcjDsTemUBMYESARFEgGUgZ2aWRlb3MM/0/0/0/video.3gp",
-                data.getItems().get(0).getContent().getSix());
+                data.getVideos().get(0).getContent().getSix());
     }
 }

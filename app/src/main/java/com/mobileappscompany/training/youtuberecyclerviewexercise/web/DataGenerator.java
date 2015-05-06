@@ -1,4 +1,4 @@
-package com.mobileappscompany.training.youtuberecyclerviewexercise;
+package com.mobileappscompany.training.youtuberecyclerviewexercise.web;
 
 import com.google.gson.Gson;
 import com.mobileappscompany.training.youtuberecyclerviewexercise.domain.youtube.Data;

@@ -3,7 +3,7 @@ package com.mobileappscompany.training.youtuberecyclerviewexercise.domain.youtub
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by Android1 on 4/20/2015.
+ * Created by Kenneth Brewer on 4/20/2015.
  */
 public class Content {
     @SerializedName("1")
@@ -15,7 +15,7 @@ public class Content {
 
     private Content() {}
 
-    public Content(String one, String five, String six) {
+    private Content(String one, String five, String six) {
         this.one = one;
         this.five = five;
         this.six = six;
@@ -33,6 +33,18 @@ public class Content {
         return six;
     }
 
+    private void setOne(String one) {
+        this.one = one;
+    }
+
+    private void setFive(String five) {
+        this.five = five;
+    }
+
+    private void setSix(String six) {
+        this.six = six;
+    }
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Content{");
@@ -41,5 +53,40 @@ public class Content {
         sb.append(", six='").append(six).append('\'');
         sb.append('}');
         return sb.toString();
+    }
+
+    public static class ContentBuilder {
+        private String one;
+        private String five;
+        private String six;
+
+        public ContentBuilder() {
+            one = null;
+            five = null;
+            six = null;
+        }
+
+        public ContentBuilder one(String one) {
+            this.one = one;
+            return this;
+        }
+
+        public ContentBuilder five(String five) {
+            this.five = five;
+            return this;
+        }
+
+        public ContentBuilder six(String six) {
+            this.six = six;
+            return this;
+        }
+
+        public Content build() {
+            Content content = new Content();
+            content.setOne(this.one);
+            content.setFive(this.five);
+            content.setSix(this.six);
+            return content;
+        }
     }
 }
