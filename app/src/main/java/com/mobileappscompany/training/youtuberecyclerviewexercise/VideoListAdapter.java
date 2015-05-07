@@ -4,20 +4,32 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.NetworkImageView;
 import com.mobileappscompany.training.youtuberecyclerviewexercise.domain.youtube.Video;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Android1 on 5/5/2015.
+ * Created by Kenneth Brewer on 5/5/2015.
  */
 public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.VideoViewHolder> {
+    private static final String TAG = "VideoListAdapter";
 
     List<Video> videos;
+    ImageLoader imageLoader;
+
+    public VideoListAdapter(ImageLoader imageLoader) {
+        this(imageLoader,new ArrayList<Video>());
+    }
+
+    public VideoListAdapter(ImageLoader imageLoader, List<Video> videos) {
+        this.imageLoader = imageLoader;
+        this.videos = videos;
+    }
 
     @Override
     public VideoViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -32,36 +44,31 @@ public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.Vide
 
     @Override
     public void onBindViewHolder(VideoViewHolder holder, int position) {
-        ImageView imageView = holder.imageviewIcon;
+        NetworkImageView imageView = holder.imageviewIcon;
         TextView textviewTitle = holder.textviewTitle;
         TextView textviewDescription = holder.textviewDescription;
         TextView textviewCategory = holder.textviewCategory;
 
-//        imageView.setImageResource(videos.get(position).getImage());
-//
-//        textViewName.setText(peopleDataSet.get(listPosition).getName());
-//        textViewEmail.setText(peopleDataSet.get(listPosition).getEmail());
-//        imageView.setImageResource(peopleDataSet.get(listPosition).getImage());
+        imageView.setImageUrl(videos.get(position).getThumbnail().getSqDefault(),imageLoader);
+        textviewTitle.setText(videos.get(position).getTitle());
+        textviewDescription.setText(videos.get(position).getDescription());
+        textviewCategory.setText(videos.get(position).getCategory());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
-    }
-
-    public VideoListAdapter(ArrayList<Video> videos) {
-        this.videos = videos;
+        return videos.size();
     }
 
     public static class VideoViewHolder extends RecyclerView.ViewHolder {
-        private ImageView imageviewIcon;
+        private NetworkImageView imageviewIcon;
         private TextView  textviewTitle;
         private TextView  textviewDescription;
         private TextView  textviewCategory;
 
         public VideoViewHolder(View itemView) {
             super(itemView);
-            this.imageviewIcon = (ImageView)itemView.findViewById(R.id.imageView);
+            this.imageviewIcon = (NetworkImageView)itemView.findViewById(R.id.imageView);
             this.textviewTitle = (TextView)itemView.findViewById(R.id.textviewTitle);
             this.textviewDescription = (TextView)itemView.findViewById(R.id.textviewDescription);
             this.textviewCategory = (TextView)itemView.findViewById(R.id.textviewCategory);

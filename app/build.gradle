@@ -30,15 +30,16 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    //compile files('libs/fest-android-1.0.8.jar')
 
-    compile 'com.android.support:appcompat-v7:22.0.0'
-    compile 'com.google.code.gson:gson:2.2.4'
+    compile 'com.android.support:appcompat-v7:22.1.1'
+    compile 'com.android.support:support-v4:22.1.1'
+    compile 'com.android.support:cardview-v7:21.0.0'
+    compile 'com.android.support:recyclerview-v7:21.0.0'
+
+    compile 'com.google.code.gson:gson:2.3.1'
     compile 'de.greenrobot:greendao:1.3.7'
     compile 'de.greenrobot:greendao-generator:1.3.1'
 
-    compile 'com.android.support:cardview-v7:21.0.+'
-    compile 'com.android.support:recyclerview-v7:21.0.+'
     compile 'com.mcxiaoke.volley:library:1.0.+'
     compile 'com.google.apis:google-api-services-youtube:v3-rev134-1.20.0'
     //compile files('C:/Users/Android1/Documents/MAC/workspace_studio/RecyclerYT/libs/YouTubeAndroidPlayerApi.jar')
